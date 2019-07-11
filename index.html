@@ -14,8 +14,6 @@
       <img width="50px" src="img/logoViviscimWhite.png" alt="logo viviscim">
     </div>
 
-
-
     <div class="titles">
       <h1 class="bigTitle">Interactive map for the Aix Festival</h1>
       <div class="containerLogo">
@@ -239,7 +237,7 @@
         // The map, centered at Aix
         var map = new google.maps.Map(
             document.getElementById('map'), {
-              zoom: 15,
+              zoom: 18,
               center: aix1,
               mapTypeControlOptions: {
                 mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
@@ -249,24 +247,24 @@
         var contentString = '<div id="content">'+
            '<div id="siteNotice">'+
            '</div>'+
-           '<h1 id="firstHeading" class="firstHeading">Test description</h1>'+
+           '<h1 id="firstHeading" class="firstHeading">Hotel Maynier Oppède</h1>'+
            '<div id="bodyContent">'+
-           '<p class="description"><b>Hotel Maynier Oppède</b> <br>'+
+           '<p class="description"><b></b> <br>'+
            '23, Rue Gaston De Saporta 13100 Aix-En-Provence <br>'+
-           '<a class="description" href="#">Visite en 360°</a></p>'+
+           '<a class="linkWindow" href="#">Visite en 360°</a></p>'+
            '</div>'+
            '</div>';
         var contentString2 = '<div id="content">'+
            '<div id="siteNotice">'+
            '</div>'+
-           '<h1 id="firstHeading" class="firstHeading">Test description</h1>'+
+           '<h1 id="firstHeading" class="firstHeading">Palais de l’Ancien Archevêché</h1>'+
            '<div id="bodyContent">'+
-           '<p class="description"><b>opera</b>, also referred to as <b>Ayers Rock</b> theatre</p>'+
-           // '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-           // 'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-           // '(last visited June 22, 2009).</p>'+
+           '<p class="description"><b></b> <br>'+
+           'Place des Martyrs de la Résistance, 13100 Aix-en-Provence <br>'+
+           '<a class="linkWindow" href="https://festival-aix.com/visite-virtuelle/v2/cd2/archeveche/archeveche.html">Visite en 360°</a></p>'+
            '</div>'+
            '</div>';
+
 
        var infowindow = new google.maps.InfoWindow({
          content: contentString
