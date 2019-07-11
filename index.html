@@ -14,6 +14,8 @@
       <img width="50px" src="img/logoViviscimWhite.png" alt="logo viviscim">
     </div>
 
+
+
     <div class="titles">
       <h1 class="bigTitle">Interactive map for the Aix Festival</h1>
       <div class="containerLogo">
@@ -25,5 +27,283 @@
       <a target="_blank" href="h"><h2 class="pinkText">Auditorium, COnservatoire Darius Milhaud</h2></a>
       <a target="_blank" href="https://festival-aix.com/visite-virtuelle/v2/cd2/grandtheatredeprovence/grand_theatre_de_provence.html"><h2 class="pinkText">Grand Théâtre de Provence</h2></a>
     </div>
+    <div class="container">
+      <div id="map"></div>
+    </div>
+
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The map Style
+        var styledMapType = new google.maps.StyledMapType(
+
+          [
+            {
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#242f3e"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#746855"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#242f3e"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.locality",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#d59563"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#d59563"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#263c3f"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#6b9a76"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#38414e"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#212a37"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "labels.icon",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#9ca5b3"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#746855"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#1f2835"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#f3d19c"
+                }
+              ]
+            },
+            {
+              "featureType": "transit",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "transit",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#2f3948"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.station",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#d59563"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#17263c"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#515c6d"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#17263c"
+                }
+              ]
+            }
+          ],
+            {name: 'Styled Map'});
+        // The location of Aix
+        var aix1 = {lat: 43.531380, lng: 5.447600};
+        // var aix2 = {lat: 43.531410, lng: 5.446980};
+        // The map, centered at Aix
+        var map = new google.maps.Map(
+            document.getElementById('map'), {
+              zoom: 15,
+              center: aix1,
+              mapTypeControlOptions: {
+                mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                        'styled_map']
+              }
+        });
+
+        var viviscim = {
+
+
+         fillColor: 'white',
+         fillOpacity: 0.8,
+         scale: 1,
+         strokeColor: 'black',
+         strokeWeight: 14
+       };
+
+        // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        // var icons = {
+        //   viviscim: {
+        //     icon: iconBase + 'parking_lot_maps.png'
+        //   }
+        // };
+        var features = [
+            {
+              position: new google.maps.LatLng(43.531410, 5.446980),
+              // type: 'viviscim'
+            }
+            // , {
+            //   position: new google.maps.LatLng(-33.91539, 151.22820),
+            //   type: 'info'
+            // }
+          ];
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+        // The marker, positioned at Aix
+        var marker = new google.maps.Marker({position: aix1, map: map});
+        // var marker2 = new google.maps.Marker({position: aix2, map: map});
+
+        // Create markers.
+        for (var i = 0; i < features.length; i++) {
+          var marker = new google.maps.Marker({
+            position: map.getCenter(),
+
+            // position: features[i].position,
+            icon: viviscim,
+            // icon: icons[features[i].type].icon,
+            map: map
+          });
+        };
+      }
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhY5bReamxpy9LteAff71o_XR6QSWiUfc&callback=initMap">
+    </script>
+
   </body>
 </html>
+
+
+var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+var beachMarker = new google.maps.Marker({
+  position: {lat: -33.890, lng: 151.274},
+  map: map,
+  icon: image
+});
