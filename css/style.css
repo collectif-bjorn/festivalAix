@@ -19,8 +19,15 @@ h1, h2, h3 a{
   font-size: 14px;
 }
 
+.linkWindow{
+  color: rgba(255, 0, 80, 0.4);
+}
+
 .pinkText{
   color: rgba(255, 0, 80, 0.4);
+}
+#firstHeading, .description{
+  color: rgba(0, 0, 0, 0.5);
 }
 
 a{
